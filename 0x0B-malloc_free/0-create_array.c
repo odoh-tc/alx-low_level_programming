@@ -8,19 +8,20 @@
  *
  * Return: a pointer to the array, or NULL if it fails
  */
-
-char *create_array(unsigned int size, char c);
+char *create_array(unsigned int size, char c)
 {
-	char *ptr;
+	char *array;
 	unsigned int i;
 
 	if (size == 0)
 		return (NULL);
 
-	ptr = (char *)malloc(size * sizeof(char));
+	array = (char *)malloc(sizeof(char) * size);
+	if (array == NULL)
+		return (NULL);
 
 	for (i = 0; i < size; i++)
-		ptr[i] = c;
+		array[i] = c;
 
-	return (ptr);
+	return (array);
 }
